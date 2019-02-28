@@ -7,7 +7,7 @@ struct UserViewData{
     let age: String
 }
 
-protocol UserView: NSObjectProtocol {
+protocol UserViewProtocol: NSObjectProtocol {
     func startLoading()
     func finishLoading()
     func setUsers(_ users: [UserViewData])
@@ -15,14 +15,14 @@ protocol UserView: NSObjectProtocol {
 }
 
 class UserPresenter {
-    fileprivate let userService:UserService
-    weak fileprivate var userView : UserView?
+    fileprivate let userService: UserService
+    weak fileprivate var userView : UserViewProtocol?
     
     init(userService:UserService){
         self.userService = userService
     }
     
-    func attachView(_ view:UserView){
+    func attachView(_ view: UserViewProtocol){
         userView = view
     }
     

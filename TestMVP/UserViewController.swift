@@ -35,7 +35,7 @@ extension UserViewController: UITableViewDataSource {
 
 }
 
-extension UserViewController: UserView {
+extension UserViewController: UserViewProtocol {
 
     func startLoading() {
         activityIndicator?.startAnimating()
